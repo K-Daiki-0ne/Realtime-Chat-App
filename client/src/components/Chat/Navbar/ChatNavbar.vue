@@ -1,8 +1,8 @@
 <template>
   <div class="navbar">
     <div class="left-content">
-      <span @click="openUsers()">
-        <i class="fas fa-users fa-lg"></i>
+      <span>
+        <i></i>
       </span>
     </div>
     <div class="center-content">
