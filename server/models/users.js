@@ -6,10 +6,6 @@ class Users {
   }
   addUser({ id, name, room }) {
 
-    // nameとroomを小文字に変換する
-    name = name.trim().toLowerCase();
-    room = room.trim().toLowerCase();
-
     const exists = this.users.find((user) => user.room === room && user.name === name);
 
     if(exists) {
