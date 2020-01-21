@@ -5,7 +5,7 @@
         <li 
           v-for="(msg, i) in messages" 
           :key="i" 
-          :class="{ owner: msg.userName == name }">
+          :class="{ owner: msg.userName == ownName }">
           <b class="user-name">
             {{ msg.userName }}
             <i class="time">{{ msg.time }}</i>
@@ -29,6 +29,7 @@ export default {
   },
   data() {
     return {
+      ownName: '',
       messages: []
     }
   },
@@ -37,6 +38,9 @@ export default {
       this.messages.push(message)
     })
   },
+  created() {
+    this.ownName = this.$route.params['name'];
+  }
 }
 </script>
 
