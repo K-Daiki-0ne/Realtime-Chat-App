@@ -14,7 +14,6 @@ const IO = (io) => {
       if(error) {
         return callback(error);
       }
-      // console.log(`${name} is join ${room}`);
       socket.emit('adminMessage', {
         user: 'admin',
         text: `${user.name}, welcome to the room ${user.room}`
@@ -34,7 +33,7 @@ const IO = (io) => {
     // receive user messages
     socket.on('sendMessage', message => {
       const user = User.getUser(socket.id);
-      // console.log(user)
+      // Herokuにdeployを行うとロンドンの時間が表示されるバグがあり
       let now    = new Date();
       const msg  = {
         text:     message,
@@ -51,7 +50,6 @@ const IO = (io) => {
     // Disconnection
     socket.on('disconnect', () => {
       const user = User.deleteUser(socket.id);
-      // console.log(user)
       if(user) {
         io.to(user.room).emit('leftUser', {
           user: 'admin',

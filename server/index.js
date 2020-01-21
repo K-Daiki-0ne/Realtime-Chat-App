@@ -15,4 +15,5 @@ app.use(cors());
 
 IO(io)
 
+// PORT番号5000のサーバーを立てる
 server.listen(port, () => console.log(`Server lisning on ${port}`));

@@ -1,8 +1,12 @@
+// Userの追加や削除等を行う
 class Users {
   constructor() {
+    // Userを格納する配列
     this.users = [];
   }
   addUser({ id, name, room }) {
+
+    // nameとroomを小文字に変換する
     name = name.trim().toLowerCase();
     room = room.trim().toLowerCase();
 
