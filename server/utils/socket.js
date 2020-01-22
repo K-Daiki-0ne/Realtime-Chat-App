@@ -24,10 +24,6 @@ const IO = (io) => {
         text: `${user.name}, has joined!`
       });
       socket.join(user.room);
-      io.to(user.room).emit('roomInfo', {
-        room: user.room,
-        users: User.showUser(user.room)
-      })
     });
     
     // receive user messages
@@ -42,10 +38,6 @@ const IO = (io) => {
         userName: user.name
       }
       io.to(user.room).emit('message', msg);
-      io.to(user.room).emit('roomInfo', {
-        room: user.room,
-        users: User.showUser(user.room)
-      })
     });
     // Disconnection
     socket.on('disconnect', () => {
